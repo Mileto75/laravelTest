@@ -79,15 +79,31 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Admin
                 </div>
+                <table class="table table-responsive">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Naam</th>
+                        <th>Te betalen</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{$name}}</td>
+                        <td>{{$totaal}}</td>
+                    </tr>
 
+                    @if($name == "Mileto")
+                        U moet niet betalen
+                    @else
+                        U betaalt {{$totaal}}
+                    @endif
+                    </tbody>
+
+                </table>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ route("createAdminPage") }}">Maak Admin</a>
                 </div>
             </div>
         </div>
