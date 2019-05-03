@@ -15,23 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products/shoes/{product_id?}',
-    function ($product_id="01")
-    {
-        return "Schoen nr $product_id";
-    });
-
-Route::get('/admin/{name?}/{role?}',function ($name="mileto",$role="admin")
+route::get('/ToAdmin',function ()
 {
-    echo "Welkom $role:$name";
-    echo session('error');
-})->name("admin");
-
-Route::get('/urltoAdmin',function ()
-{
-    //echo "<a href='".url("admin")."'>To admin</a>";
-    return redirect()->back()->with('error','something wrong');
+   echo "<a href='".route('adminPage')."'>Adminpagina</a>";
 });
+
+Route::get('/admin','AdminController@index')->name("adminPage");
+Route::get('/admin/createAdmin',"AdminController@createAdmin")->name('createAdminPage');
+
+//lotto routes
+route::get('/lotto','LottoController@index')->name('lottoHome');
 
 
 
