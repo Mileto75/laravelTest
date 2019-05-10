@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MovieController extends Controller
 {
@@ -11,15 +12,23 @@ class MovieController extends Controller
     {
         //roept de view op voor ons formulier
         $vars = array('pageTitle' => 'New Movie');
+
         return view('newMovie',$vars);
+
     }
 
     //deze methode handelt de POST af
     public function addMovie(Request $request)
     {
-        echo $filmTitel  = $request->input('title');
-        echo $filmJaar   = $request->input('jaar');
+        $filmTitel  = $request->input('title');
+        $filmJaar   = $request->input('jaar');
         $this->checkFilms("The godfather");
+        //voeg de titel van de film aan de sessie
+        Session::put('title',$filmTitel);
+
+        $vars = array('pageTitle' => 'New Movie');
+
+        return view('newMovie',$vars);
     }
 
     private function checkFilms($titel)

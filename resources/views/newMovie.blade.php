@@ -4,6 +4,8 @@
 <div class="container">
     <h2>Nieuwe Film</H2>
 </div>
+
+filmTitel = {{Session::get('title')}}
 <div class="container">
     <form action="{{route('addMovie')}}" method="post">
         {{csrf_field()}}
