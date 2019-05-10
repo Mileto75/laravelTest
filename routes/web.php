@@ -11,20 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-route::get('/ToAdmin',function ()
-{
-   echo "<a href='".route('adminPage')."'>Adminpagina</a>";
-});
 
-Route::get('/admin','AdminController@index')->name("adminPage");
-Route::get('/admin/createAdmin',"AdminController@createAdmin")->name('createAdminPage');
 
-//lotto routes
-route::get('/lotto','LottoController@index')->name('lottoHome');
+
+//view route formulier newMovie
+Route::get('/movies/newMovie','MovieController@newMovie')->name('newMovie');
+
+//POST route new movie
+Route::post('/movies/addMovie','MovieController@addMovie')->name('addMovie');
+
+
+
+
 
 
 
